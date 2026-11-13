@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+int main() {
+    double purchase; char premium, unpaid;
+    cout << "Purchase Amount: "; cin >> purchase;
+    cout << "Premium member? (y/n): "; cin >> premium;
+    cout << "Unpaid previous order? (y/n): "; cin >> unpaid;
+    if (unpaid == 'y') { cout << "Order Cannot Be Confirmed"; return 0; }
+    double discount = 0;
+    if (purchase > 50000) discount = 0.20;
+    else if (purchase > 25000) discount = 0.15;
+    else if (purchase > 10000) discount = 0.10;
+    if (premium == 'y') discount += 0.05;
+    double total = purchase - (purchase * discount);
+    double delivery = (total > 20000) ? 0 : 500;
+    cout << "Payable: Rs. " << total + delivery;
+    cout << "\nOrder Confirmed";
+    return 0;
+}

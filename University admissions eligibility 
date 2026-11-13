@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int age, years, credit; float salary, installment;
+    cout << "Age: "; cin >> age;
+    cout << "Salary: "; cin >> salary;
+    cout << "Employment Years: "; cin >> years;
+    cout << "Existing Installment: "; cin >> installment;
+    cout << "Credit Score: "; cin >> credit;
+    if (age < 21 || salary < 50000 || years < 2 || credit < 600 || installment > salary*0.4) {
+        cout << "Loan Rejected";
+    } else if (salary > 150000 && years > 5) {
+        cout << "Loan Approved - Premium Category";
+    } else {
+        cout << "Loan Approved - Normal Category";
+    }
+    return 0;
+}

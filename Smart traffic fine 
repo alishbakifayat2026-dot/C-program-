@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+int main() {
+    int speed; char prev, licence, reg;
+    cout << "Speed: "; cin >> speed;
+    cout << "Previous violations? (y/n): "; cin >> prev;
+    cout << "Valid licence? (y/n): "; cin >> licence;
+    cout << "Registered? (y/n): "; cin >> reg;
+    double fine = 0;
+    if (speed <= 60) fine = 0;
+    else if (speed <= 80) fine = 2000;
+    else if (speed <= 100) fine = 5000;
+    else fine = 10000;
+    if (prev == 'y') fine += fine * 0.25;
+    if (licence == 'n') fine += 5000;
+    if (reg == 'n') { fine += 10000; cout << "Vehicle Cannot Continue\n"; }
+    else cout << "Vehicle Can Continue\n";
+    cout << "Total Fine: Rs. " << fine;
+    return 0;
+}

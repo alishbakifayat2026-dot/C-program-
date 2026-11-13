@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+int main() {
+    double km, waiting; int hour; char premium, cancel;
+    cout << "Distance KM: "; cin >> km;
+    cout << "Waiting Minutes: "; cin >> waiting;
+    cout << "Hour (0-23): "; cin >> hour;
+    cout << "Premium? (y/n): "; cin >> premium;
+    cout << "Driver Cancelled? (y/n): "; cin >> cancel;
+    double fare = 150 + (km * 50) + (waiting * 10);
+    if (hour >= 22 || hour < 6) fare += fare * 0.20;
+    if (premium == 'y') fare -= fare * 0.10;
+    cout << "Final Fare: Rs. " << fare;
+    if (cancel == 'y') cout << "\nPenalty Rs.300 charged to driver";
+    return 0;
+}

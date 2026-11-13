@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+int main() {
+    char validIns, expired, validLic, alcohol, responsible;
+    double damage;
+    cout<<"Valid Insurance? (y/n): "; cin>>validIns;
+    cout<<"Policy Expired? (y/n): "; cin>>expired;
+    cout<<"Valid Licence? (y/n): "; cin>>validLic;
+    cout<<"Driver Drunk? (y/n): "; cin>>alcohol;
+    cout<<"Damage Amount: "; cin>>damage;
+    cout<<"Driver Responsible? (y/n): "; cin>>responsible;
+    if(validIns=='n' || expired=='y' || validLic=='n' || alcohol=='y'){
+        cout<<"Claim Rejected"; return 0;
+    }
+    double payable = damage;
+    if(damage < 20000) cout<<"Approved Without Inspection\n";
+    else if(damage <= 200000) cout<<"Physical Inspection Required\n";
+    else cout<<"Manager Approval Required\n";
+    if(responsible=='y') payable -= payable*0.20;
+    cout<<"Final Payable: Rs. "<<payable;
+    return 0;
+}
